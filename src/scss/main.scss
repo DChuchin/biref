@@ -1,21 +1,21 @@
 /* Normalize css */
-@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/normalize.css/normalize';
 
 /* Fonts */
-@import '../assets/fonts/main.css';
+@import '../assets/fonts/main';
 
 /* Setup */
-@import './variables/fonts.scss';
-@import './variables/colors.scss';
-@import './variables/headings.scss';
-@import './variables/values.scss';
-@import './variables/media.scss';
+@import './variables/fonts';
+@import './variables/colors';
+@import './variables/headings';
+@import './variables/values';
+@import './variables/media';
 
 /* Base styles */
-@import './base/elements.scss';
-@import './base/typography.scss';
-@import './base/buttons.scss';
+@import './base/elements';
+@import './base/typography';
+@import './base/buttons';
 
 /* Components */
-@import './components/header.scss';
-@import './components/footer.scss';
+@import './components/header';
+@import './components/footer';
