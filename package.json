@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
-    "format": "prettier --write 'src/**/*.js'",
+    "format": "prettier --write 'src/**/*.{js,css,scss}'",
     "start": "yarn clean && parcel watch src/app.js",
     "build-prod": "parcel build src/app.js"
   },
