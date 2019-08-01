@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "format": "prettier --write 'src/**/*.{js,css,scss}'",
     "start": "yarn clean && parcel watch src/app.js",
-    "build-prod": "parcel build src/app.js"
+    "build": "yarn clean && parcel build src/app.js"
   },
   "husky": {
     "hooks": {
@@ -25,6 +25,7 @@
     "autoprefixer": "^9.6.1",
     "husky": "^3.0.2",
     "parcel-bundler": "latest",
+    "parcel-plugin-imagemin": "^3.0.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "sass": "^1.22.9"
