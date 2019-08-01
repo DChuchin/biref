@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "format": "prettier --write 'src/**/*.{js,css,scss}'",
-    "start": "yarn clean && parcel watch src/app.js",
+    "watch": "yarn clean && parcel watch src/app.js",
     "build": "yarn clean && parcel build src/app.js"
   },
   "husky": {
