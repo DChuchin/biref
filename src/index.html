@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./scss/main.scss" />
+  </head>
+
+  <body>
+    <h1>Request an estimate</h1>
+    <h2>Please, fill out the brief with as many details as possible</h2>
+    <form action="" id="form">
+      <fieldset class="step" data-step="0">
+        <p>What would you like to get?</p>
+        <div>
+          <input type="radio" id="estimate" name="worktype" value="estimate" />
+          <label for="estimate">an estimate</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="consultation"
+            name="worktype"
+            value="consultation"
+          />
+          <label for="consultation">a live consultation</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="1">
+        <p>You need (choose all that apply)</p>
+        <div>
+          <input type="checkbox" id="development" name="development" />
+          <label for="development">development</label>
+        </div>
+        <div>
+          <input type="checkbox" id="design" name="design" />
+          <label for="design">design work</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="2">
+        <p>It is</p>
+        <div>
+          <input type="radio" id="scratch" name="itis" value="scratch" />
+          <label for="scratch">work from scratch</label>
+        </div>
+        <div>
+          <input type="radio" id="existing" name="itis" value="existing" />
+          <label for="existing">work on an existing project</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="3">
+        <p>What type of site do you need?</p>
+        <div>
+          <input
+            type="radio"
+            id="ecommerce"
+            name="sitetype"
+            value="ecommerce"
+            required
+          />
+          <label for="ecommerce">Online store / E-commerce</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="information"
+            name="sitetype"
+            value="information"
+            required
+          />
+          <label for="information"
+            >Informational/ small corporate website</label
+          >
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="controls">
+      <button id="prevBtn">previous</button><button id="nextBtn">next</button>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
