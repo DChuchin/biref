@@ -1,85 +1,32 @@
-import polyfills from './polyfills';
+import render from './modules/render';
+import model from './modules/model';
+import resetRequired from './modules/resetRequired';
 
-{
-  polyfills();
-}
+const form = document.querySelector('form');
+const nextBtn = document.querySelector('#nextBtn');
+const prevBtn = document.querySelector('#prevBtn');
 
-function State(step = 0, maxStep = 0) {
-  Object.assign(this, { step, maxStep });
-}
+const goNext = e => {
+  e.preventDefault();
 
-State.prototype.nextStep = function() {
-  if (this.step < this.maxStep) {
-    this.step += 1;
+  if (form.reportValidity()) {
+    model.nextStep();
   }
-};
-
-State.prototype.prevStep = function() {
-  if (this.step > 0) {
-    this.step -= 1;
-  }
-};
-
-let state = {};
-
-const initState = () => {
-  const stepsCount = document.querySelectorAll('form > fieldset').length - 1;
-
-  state = new State(0, stepsCount);
-
   render();
 };
 
-const render = () => {
-  console.log(state);
-  const { step, maxStep } = state;
-  const prevBtn = document.querySelector('#prevBtn');
-  const nextBtn = document.querySelector('#nextBtn');
-  const formStepList = Array.from(document.querySelectorAll(`[data-step]`));
-
-  formStepList.forEach(formStep => {
-    formStep.dataset.step == step
-      ? (formStep.style.display = 'block')
-      : (formStep.style.display = 'none');
-  });
-
-  if (step === 0) {
-    prevBtn.setAttribute('disabled', 'disabled');
-  } else {
-    prevBtn.removeAttribute('disabled');
-  }
-
-  if (step === maxStep) {
-    nextBtn.setAttribute('disabled', 'disabled');
-  } else {
-    nextBtn.removeAttribute('disabled');
-  }
+const goBack = e => {
+  e.preventDefault();
+  model.prevStep();
+  render();
 };
 
-const form = document.querySelector('#form');
+// listeners
+form.addEventListener('input', () => render());
+prevBtn.addEventListener('click', goBack);
+nextBtn.addEventListener('click', goNext);
 
-form.addEventListener('changeStep', () => {
-  render();
-});
+window.model = model; // TODO remove from prod
 
-prevBtn.addEventListener('click', e => {
-  e.preventDefault();
-
-  const changeStep = new Event('changeStep');
-
-  state.prevStep();
-  form.dispatchEvent(changeStep);
-});
-
-nextBtn.addEventListener('click', e => {
-  e.preventDefault();
-
-  const changeStep = new Event('changeStep');
-
-  state.nextStep();
-  form.dispatchEvent(changeStep);
-});
-
-window.state = state;
-
-initState();
+resetRequired(form);
+render();

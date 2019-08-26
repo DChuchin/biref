@@ -6,16 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link rel="stylesheet" href="./scss/main.scss" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
     <h1>Request an estimate</h1>
     <h2>Please, fill out the brief with as many details as possible</h2>
-    <form action="" id="form">
+    <form action="">
       <fieldset class="step" data-step="0">
         <p>What would you like to get?</p>
         <div>
-          <input type="radio" id="estimate" name="worktype" value="estimate" />
+          <input
+            type="radio"
+            id="estimate"
+            name="worktype"
+            value="estimate"
+            required
+          />
           <label for="estimate">an estimate</label>
         </div>
         <div>
@@ -24,8 +36,13 @@
             id="consultation"
             name="worktype"
             value="consultation"
+            required
           />
           <label for="consultation">a live consultation</label>
+        </div>
+        <div>
+          <input id="email" type="email" />
+          <label for="email">email</label>
         </div>
       </fieldset>
 
@@ -44,17 +61,22 @@
       <fieldset class="step" data-step="2">
         <p>It is</p>
         <div>
-          <input type="radio" id="scratch" name="itis" value="scratch" />
-          <label for="scratch">work from scratch</label>
+          <input type="radio" id="scratch" name="itis" value="3.1" required />
+          <label for="scratch">3.1</label>
         </div>
         <div>
-          <input type="radio" id="existing" name="itis" value="existing" />
-          <label for="existing">work on an existing project</label>
+          <input type="radio" id="existing" name="itis" value="3.2" required />
+          <label for="existing">3.2</label>
         </div>
       </fieldset>
 
-      <fieldset class="step" data-step="3">
-        <p>What type of site do you need?</p>
+      <fieldset
+        class="step"
+        data-step="3"
+        data-depend-on-field="itis"
+        data-depend-on-value="3.1"
+      >
+        <p>3.1</p>
         <div>
           <input
             type="radio"
@@ -78,10 +100,70 @@
           >
         </div>
       </fieldset>
+
+      <fieldset
+        class="step"
+        data-step="3"
+        data-depend-on-field="itis"
+        data-depend-on-value="3.2"
+      >
+        <p>3.2</p>
+        <div>
+          <input
+            type="radio"
+            id="ecommerce2"
+            name="3.2"
+            value="ecommerce"
+            required
+          />
+          <label for="ecommerce2">Online store / E-commerce</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="information2"
+            name="3.2"
+            value="information"
+            required
+          />
+          <label for="information2"
+            >Informational/ small corporate website</label
+          >
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="4">
+        <p>4</p>
+        <div>
+          <input
+            type="radio"
+            id="ecommerce2"
+            name="3.2"
+            value="ecommerce"
+            required
+          />
+          <label for="ecommerce2">Online store / E-commerce</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="information2"
+            name="3.2"
+            value="information"
+            required
+          />
+          <label for="information2"
+            >Informational/ small corporate website</label
+          >
+        </div>
+      </fieldset>
     </form>
 
+    <div class="counter"></div>
+
     <div class="controls">
-      <button id="prevBtn">previous</button><button id="nextBtn">next</button>
+      <button class="btn btn-primary" id="prevBtn">previous</button
+      ><button class="btn btn-primary" id="nextBtn">next</button>
     </div>
     <script src="./js/main.js"></script>
   </body>
