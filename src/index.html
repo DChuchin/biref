@@ -5,165 +5,401 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./scss/main.scss" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./scss/main.scss" />
   </head>
 
   <body>
-    <h1>Request an estimate</h1>
-    <h2>Please, fill out the brief with as many details as possible</h2>
-    <form action="">
-      <fieldset class="step" data-step="0">
-        <p>What would you like to get?</p>
-        <div>
-          <input
-            type="radio"
-            id="estimate"
-            name="worktype"
-            value="estimate"
-            required
-          />
-          <label for="estimate">an estimate</label>
+    <div class="container-fluid multiform">
+      <div class="multiform__title">
+        <h1>Request an estimate</h1>
+        <h2>Please, fill out the brief with as many details as possible</h2>
+        <div class="counter">
+          <div class="bar"></div>
         </div>
-        <div>
-          <input
-            type="radio"
-            id="consultation"
-            name="worktype"
-            value="consultation"
-            required
-          />
-          <label for="consultation">a live consultation</label>
-        </div>
-        <div>
-          <input id="email" type="email" />
-          <label for="email">email</label>
-        </div>
-      </fieldset>
+      </div>
+      <form action="" novalidate>
+        <fieldset class="step" data-step="0">
+          <h2 class="step__title">1. How can we help you?</h2>
+          <div class="step__group">
+            <h3 class="group__title">What would you like to get?</h3>
+            <div class="row">
+              <div class="radio col col-12">
+                <input
+                  class="radio__input"
+                  type="radio"
+                  id="estimate"
+                  name="worktype"
+                  value="estimate"
+                  required
+                />
+                <label class="radio__label" for="estimate" tabindex="0"
+                  >An estimate</label
+                >
+              </div>
+              <div class="radio col col-12">
+                <input
+                  class="radio__input"
+                  type="radio"
+                  id="consultation"
+                  name="worktype"
+                  value="consultation"
+                  required
+                />
+                <label class="radio__label" for="consultation" tabindex="0"
+                  >A live consultation</label
+                >
+              </div>
+            </div>
+          </div>
 
-      <fieldset class="step" data-step="1">
-        <p>You need (choose all that apply)</p>
-        <div>
-          <input type="checkbox" id="development" name="development" />
-          <label for="development">development</label>
-        </div>
-        <div>
-          <input type="checkbox" id="design" name="design" />
-          <label for="design">design work</label>
-        </div>
-      </fieldset>
+          <div class="step__group">
+            <h3 class="group__title">You need (choose all that apply)</h3>
+            <div class="checkbox">
+              <input
+                class="checkbox__input"
+                type="checkbox"
+                id="development"
+                name="development"
+              />
+              <label class="checkbox__label" for="development"
+                >Development</label
+              >
+            </div>
+            <div class="checkbox">
+              <input
+                class="checkbox__input"
+                type="checkbox"
+                id="design"
+                name="design"
+              />
+              <label class="checkbox__label" for="design">Design work</label>
+            </div>
+          </div>
 
-      <fieldset class="step" data-step="2">
-        <p>It is</p>
-        <div>
-          <input type="radio" id="scratch" name="itis" value="3.1" required />
-          <label for="scratch">3.1</label>
-        </div>
-        <div>
-          <input type="radio" id="existing" name="itis" value="3.2" required />
-          <label for="existing">3.2</label>
-        </div>
-      </fieldset>
+          <div class="step__group">
+            <h3 class="group__title">It is</h3>
+            <div class="radio">
+              <input
+                class="radio__input"
+                type="radio"
+                id="scratch"
+                name="itis"
+                value="scratch"
+                required
+              />
+              <label class="radio__label" for="scratch"
+                >Work from scratch</label
+              >
+            </div>
+            <div class="radio">
+              <input
+                class="radio__input"
+                type="radio"
+                id="existing"
+                name="itis"
+                value="existing_project"
+                required
+              />
+              <label class="radio__label" for="existing"
+                >Work on an existing project</label
+              >
+            </div>
+          </div>
+        </fieldset>
 
-      <fieldset
-        class="step"
-        data-step="3"
-        data-depend-on-field="itis"
-        data-depend-on-value="3.1"
-      >
-        <p>3.1</p>
-        <div>
-          <input
-            type="radio"
-            id="ecommerce"
-            name="sitetype"
-            value="ecommerce"
-            required
-          />
-          <label for="ecommerce">Online store / E-commerce</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="information"
-            name="sitetype"
-            value="information"
-            required
-          />
-          <label for="information"
-            >Informational/ small corporate website</label
+        <fieldset class="step" data-step="1">
+          <h2 class="step__title">2. Please, describe your project</h2>
+          <div data-depend-on-field="itis" data-depend-on-value="scratch">
+            <div class="step__group">
+              <h3 class="group__title">What type of site do you need?</h3>
+              <div class="row">
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="ecommerce"
+                    name="sitetype"
+                    value="ecommerce"
+                    required
+                  />
+                  <label class="radio-btn__label" for="ecommerce"
+                    >Online store / E-commerce</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="information"
+                    name="sitetype"
+                    value="information"
+                    required
+                  />
+                  <label class="radio-btn__label" for="information"
+                    >Informational/ small corporate website</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="portfolio"
+                    name="sitetype"
+                    value="portfolio"
+                    required
+                  />
+                  <label class="radio-btn__label" for="portfolio"
+                    >Portfolit / Blog</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="landing"
+                    name="sitetype"
+                    value="landing"
+                    required
+                  />
+                  <label class="radio-btn__label" for="landing"
+                    >Landing / Promo page</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="media"
+                    name="sitetype"
+                    value="media"
+                    required
+                  />
+                  <label class="radio-btn__label" for="media"
+                    >Media website</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="e-learning"
+                    name="sitetype"
+                    value="e-learning"
+                    required
+                  />
+                  <label class="radio-btn__label" for="e-learning"
+                    >E-learning system</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="online"
+                    name="sitetype"
+                    value="online"
+                    required
+                  />
+                  <label class="radio-btn__label" for="online"
+                    >Online community</label
+                  >
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="crm"
+                    name="sitetype"
+                    value="crm"
+                    required
+                  />
+                  <label class="radio-btn__label" for="crm">CRM system</label>
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="other"
+                    name="sitetype"
+                    value="other"
+                    required
+                  />
+                  <label class="radio-btn__label" for="other">Other</label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="step__group"
+              data-depend-on-field="sitetype"
+              data-depend-on-value="other"
+            >
+              <label class="group__title"
+                >Write what type of site you need</label
+              >
+              <textarea
+                class="textarea"
+                name=""
+                id=""
+                cols="30"
+                rows="7"
+                placeholder="type here..."
+              ></textarea>
+            </div>
+            <div class="step__group">
+              <h3 class="group__title">
+                How many pages will your site contain?
+              </h3>
+              <div class="row">
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="smallSite"
+                    name="sitesize"
+                    value="1-5"
+                  />
+                  <label class="radio-btn__label" for="smallSite">1-5</label>
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="mediumSite"
+                    name="sitesize"
+                    value="6-15"
+                  />
+                  <label class="radio-btn__label" for="mediumSite">6-15</label>
+                </div>
+                <div class="radio-btn col col-4">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    id="bigSite"
+                    name="sitesize"
+                    value="15+"
+                  />
+                  <label class="radio-btn__label" for="bigSite">15+</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-depend-on-field="itis"
+            data-depend-on-value="existing_project"
           >
-        </div>
-      </fieldset>
+            <div class="step__group">
+              <label class="group__title" for="websiteLink"
+                >Please, provide the link to the website/app</label
+              >
+              <input
+                class="input"
+                type="text"
+                id="websiteLink"
+                placeholder="www.example.com"
+              />
+            </div>
+            <div class="step__group">
+              <label class="group__title" for="describe"
+                >Describe what you need to help you with</label
+              >
+              <textarea
+                class="textarea"
+                name=""
+                id="describe"
+                cols="30"
+                rows="7"
+                placeholder="type here..."
+              ></textarea>
+            </div>
+            <div class="step__group">
+              <h3 class="group__title">What is your budget?</h3>
+              <div class="row">
+                <div class="radio-btn col col-3">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    name="budget"
+                    value="Less than $5000"
+                    id="smalbudget"
+                  />
+                  <label class="radio-btn__label" for="smalbudget">
+                    <span>Less than $5000</span>
+                  </label>
+                </div>
+                <div class="radio-btn col col-3">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    name="budget"
+                    value="$5000 - $25 000"
+                    id="mediumbudget"
+                  />
+                  <label class="radio-btn__label" for="mediumbudget">
+                    <span>$5000 - $25 000</span>
+                  </label>
+                </div>
+                <div class="radio-btn col col-3">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    name="budget"
+                    value="$25 -000 - $100 000"
+                    id="bigbudget"
+                  />
+                  <label class="radio-btn__label" for="bigbudget">
+                    <span>$25 000 - $100 000</span>
+                  </label>
+                </div>
+                <div class="radio-btn col col-3">
+                  <input
+                    class="radio-btn__input"
+                    type="radio"
+                    name="budget"
+                    value="More than $100 000"
+                    id="hugebudget"
+                  />
+                  <label class="radio-btn__label" for="hugebudget">
+                    <span>More than $100 000</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="step" data-step="2">
+          <h2 class="step__title">3. Let’s get to know each other better</h2>
+          <div class="step__group">
+            <label for="" class="group__title">Your name</label>
+            <input class="input" type="text" placeholder="Alex Smith" />
+          </div>
+          <div class="step__group">
+            <label for="" class="group__title">Your email</label>
+            <input class="input" type="email" placeholder="example@gmail.com" />
+          </div>
+        </fieldset>
+      </form>
 
-      <fieldset
-        class="step"
-        data-step="3"
-        data-depend-on-field="itis"
-        data-depend-on-value="3.2"
-      >
-        <p>3.2</p>
-        <div>
-          <input
-            type="radio"
-            id="ecommerce2"
-            name="3.2"
-            value="ecommerce"
-            required
-          />
-          <label for="ecommerce2">Online store / E-commerce</label>
+      <div class="controls row">
+        <div class="col col-6">
+          <button class="btn btn-primary" id="prevBtn">previous step</button>
         </div>
-        <div>
-          <input
-            type="radio"
-            id="information2"
-            name="3.2"
-            value="information"
-            required
-          />
-          <label for="information2"
-            >Informational/ small corporate website</label
-          >
+        <div class="col col-6">
+          <button type="submit" class="btn btn-success" id="submitBtn">
+            Let's Go
+          </button>
+          <button class="btn btn-primary" id="nextBtn">next step</button>
         </div>
-      </fieldset>
-
-      <fieldset class="step" data-step="4">
-        <p>4</p>
-        <div>
-          <input
-            type="radio"
-            id="ecommerce2"
-            name="3.2"
-            value="ecommerce"
-            required
-          />
-          <label for="ecommerce2">Online store / E-commerce</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="information2"
-            name="3.2"
-            value="information"
-            required
-          />
-          <label for="information2"
-            >Informational/ small corporate website</label
-          >
-        </div>
-      </fieldset>
-    </form>
-
-    <div class="counter"></div>
-
-    <div class="controls">
-      <button class="btn btn-primary" id="prevBtn">previous</button
-      ><button class="btn btn-primary" id="nextBtn">next</button>
+      </div>
     </div>
     <script src="./js/main.js"></script>
   </body>

@@ -10,6 +10,7 @@ const goNext = e => {
   e.preventDefault();
 
   if (form.reportValidity()) {
+    model.direction = 'forward';
     model.nextStep();
   }
   render();
@@ -17,6 +18,7 @@ const goNext = e => {
 
 const goBack = e => {
   e.preventDefault();
+  model.direction = 'backward';
   model.prevStep();
   render();
 };
