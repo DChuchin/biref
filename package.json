@@ -1,13 +1,13 @@
 {
   "name": "parcel-boilerplate",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist public",
     "format": "prettier --write 'src/**/*.{js,css,scss}'",
-    "watch": "yarn clean && parcel watch src/app.js",
-    "build": "yarn clean && parcel build src/app.js",
+    "watch": "yarn clean && parcel watch src/index.html",
+    "build": "yarn clean && parcel build src/index.html --out-dir public",
     "serve": "yarn clean && parcel serve src/index.html"
   },
   "husky": {
