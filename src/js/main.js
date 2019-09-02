@@ -30,5 +30,5 @@ nextBtn.addEventListener('click', goNext);
 
 window.model = model; // TODO remove from prod
 
-resetRequired(form);
+// resetRequired(form);
 render();
